@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: -webkit-gradient(linear, left top, right top, from(#2e2e2e), to(#653e7e));
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background: #2f2f2f; /* cinza escuro neutro */
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(149, 0, 255, 0.4); /* sombra roxa */
+    width: 800px;
+    color: #e0e0e0; /* texto cinza claro para contraste */
+}
+
+h1 {
+    text-align: center;
+    color: #fff; /* branco para destacar */
+}
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px; /* espaço entre form e tabela */
+    justify-content: center; /* centraliza inputs horizontalmente */
+    align-items: center; /* alinha inputs verticalmente */
+}
+
+
+form input, form select, form button {
+    padding: 10px;
+    background: #444; /* cinza médio */
+    border: 1px solid #666; /* cinza escuro */
+    border-radius: 6px;
+    font-size: 14px;
+    color: #e0e0e0; /* texto claro */
+}
+
+
+form button {
+    background-color: #6a0dad; /* roxo */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #4b068b; /* roxo mais escuro */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #3a3a3a; /* cinza escuro */
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #555; /* cinza escuro */
+    color: #e0e0e0; /* texto claro */
+}
+
+tr:hover {
+    background-color: #4b068b; /* roxo escuro para hover */
+}
+
+.delete-btn {
+    color: #6a0dad; /* roxo */
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.delete-btn:hover {
+    color: #f7f5f8; /* roxo escuro */
+}
+
+.riscado {
+    text-decoration: line-through;
+    color: #999; /* cinza médio */
+}

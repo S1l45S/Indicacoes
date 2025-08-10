@@ -8,40 +8,40 @@ body {
 }
 
 .container {
-    background: #2f2f2f; /* cinza escuro neutro */
+    background: #2f2f2f; 
     margin-top: 40px;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(149, 0, 255, 0.4); /* sombra roxa */
+    box-shadow: 0 2px 12px rgba(149, 0, 255, 0.4); 
     width: 800px;
-    color: #e0e0e0; /* texto cinza claro para contraste */
+    color: #e0e0e0; 
 }
 
 h1 {
     text-align: center;
-    color: #fff; /* branco para destacar */
+    color: #fff; 
 }
 form {
     display: flex;
     gap: 10px;
-    margin-bottom: 30px; /* espaço entre form e tabela */
-    justify-content: center; /* centraliza inputs horizontalmente */
-    align-items: center; /* alinha inputs verticalmente */
+    margin-bottom: 30px; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 
 form input, form select, form button {
     padding: 10px;
-    background: #444; /* cinza médio */
-    border: 1px solid #666; /* cinza escuro */
+    background: #444; 
+    border: 1px solid #666; 
     border-radius: 6px;
     font-size: 14px;
-    color: #e0e0e0; /* texto claro */
+    color: #e0e0e0;
 }
 
 
 form button {
-    background-color: #6a0dad; /* roxo */
+    background-color: #6a0dad; 
     color: white;
     border: none;
     cursor: pointer;
@@ -49,7 +49,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #4b068b; /* roxo mais escuro */
+    background-color: #4b068b; 
 }
 
 table {
@@ -58,33 +58,34 @@ table {
 }
 
 thead {
-    background-color: #3a3a3a; /* cinza escuro */
+    background-color: #3a3a3a; 
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #555; /* cinza escuro */
-    color: #e0e0e0; /* texto claro */
+    border-bottom: 1px solid #555; 
+    color: #e0e0e0; 
 }
 
 tr:hover {
-    background-color: #4b068b; /* roxo escuro para hover */
+    background-color: #4b068b; 
 }
 
 .delete-btn {
-    color: #6a0dad; /* roxo */
+    color: #6a0dad; 
     font-size: 18px;
     cursor: pointer;
     background: none;
     border: none;
+    transition: background 0.3s;
 }
 
 .delete-btn:hover {
-    color: #f7f5f8; /* roxo escuro */
+    color: #f7f5f8; 
 }
 
 .riscado {
     text-decoration: line-through;
-    color: #999; /* cinza médio */
+    color: #999; 
 }

@@ -1,6 +1,3 @@
-// script.js (Versão corrigida e completa)
-
-// ** ATENÇÃO: Substitua `SUA_CHAVE_API` e `SUA_ID_BIN` pelos seus dados reais. **
 const BIN_ID = '68983e3b43b1c97be91ac5e4';
 const API_KEY = '$2a$10$m./zZ7jmLTwtAZt2pCeQSOf0HB2pK9OE3MhOx0cFxtTUO7AkJAu1m';
 
@@ -15,7 +12,6 @@ document.getElementById("form-indicacao").addEventListener("submit", async funct
     const tipo = document.getElementById("tipo").value;
     const quem = document.getElementById("quem").value;
 
-    // Gerar um ID simples (pode ser mais robusto em um projeto real)
     const id = Date.now().toString();
 
     await adicionarIndicacao({ id, nome, tipo, quem, assistido: false });
@@ -24,7 +20,7 @@ document.getElementById("form-indicacao").addEventListener("submit", async funct
 
 async function carregarIndicacoes() {
     const tabela = document.getElementById("lista");
-    tabela.innerHTML = ''; // Limpa a tabela antes de carregar
+    tabela.innerHTML = '';
 
     try {
         const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {

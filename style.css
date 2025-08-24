@@ -1,91 +1,278 @@
+/* =================================
+   ESTILOS GERAIS E FUNDO
+   ================================= */
 body {
-    font-family: Arial, sans-serif;
-    background: -webkit-gradient(linear, left top, right top, from(#2e2e2e), to(#653e7e));
+    font-family: 'Arial', sans-serif;
+    background-color: #37334f; /* Cor de fundo escura caso a imagem falhe */
+    color: #E1E1E6;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    min-height: 100vh;
 }
 
+/* =================================
+   CONTAINER PRINCIPAL
+   ================================= */
 .container {
-    background: #2f2f2f; 
-    margin-top: 40px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(149, 0, 255, 0.4); 
-    width: 800px;
-    color: #e0e0e0; 
+    background: transparent;
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+    color: #E1E1E6;
 }
 
+/* =================================
+   TÍTULOS
+   ================================= */
 h1 {
-    text-align: center;
-    color: #fff; 
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center; /* Títulos sempre centralizados */
+    white-space: nowrap;
 }
-form {
+
+/* =================================
+   BOTÕES DA PÁGINA INICIAL
+   ================================= */
+.botoes-home {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px; 
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: column; /* Empilha os botões */
+    align-items: center;
+    gap: 20px; /* Espaço entre os botões */
 }
 
-
-form input, form select, form button {
-    padding: 10px;
-    background: #444; 
-    border: 1px solid #666; 
-    border-radius: 6px;
-    font-size: 14px;
-    color: #e0e0e0;
+.botoes-home a {
+    width: 100%;
+    max-width: 300px; /* Largura máxima dos botões */
+    text-decoration: none;
 }
 
+.botoes-home button {
+    background-color: #282336;
+    color: #E1E1E6;
+    border: 1px solid #3A334F;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 30px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.botoes-home button:hover {
+    background-color: #8257E6; /* Roxo vibrante no hover */
+    color: #FFFFFF;
+    border-color: #8257E6;
+}
+
+/* =================================
+   FORMULÁRIO (Páginas de Lista)
+   ================================= */
+form {
+    background: #1E192B;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #E1E1E6;
+    outline: none;
+}
+
+form input::placeholder {
+    color: #7C7C8A;
+}
+
+form select {
+    width: auto;
+}
 
 form button {
-    background-color: #6a0dad; 
+    background-color: #8257E6; /* Roxo vibrante */
     color: white;
     border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 form button:hover {
-    background-color: #4b068b; 
+    background-color: #633BBC;
 }
 
+/* =================================
+   LISTA DE ITENS (Tabela)
+   ================================= */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #1E192B;
+    border-radius: 8px;
+    padding: 5px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 thead {
-    background-color: #3a3a3a; 
+    display: none;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #555; 
-    color: #e0e0e0; 
+tr {
+    background-color: transparent;
+    border-bottom: 1px solid #44334f;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+tr:last-child {
+    border-bottom: none;
 }
 
 tr:hover {
-    background-color: #4b068b; 
+    background-color: rgba(173, 87, 230, 0.15); /* Roxo suave no hover */
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
 }
 
+td {
+    padding: 5px;
+    border: none;
+    color: #E1E1E6;
+    text-align: left;
+}
+
+/* Ajustes de colunas */
+td:first-child { flex-basis: 40px; }
+td:nth-child(2) { flex-grow: 1; }
+td:last-child { flex-basis: 40px; text-align: right; }
+
+/* Checkbox Personalizado */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #3A334F;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s;
+}
+
+input[type="checkbox"]:hover {
+    border-color: #8257E6;
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background: linear-gradient(135deg, #996DFF, #8257E6);
+}
+
+input[type="checkbox"]:checked {
+    border-color: #8257E6;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+/* Item riscado */
+.riscado td:nth-child(2) {
+    text-decoration: line-through;
+    color: #7C7C8A;
+}
+
+/* Botão de Excluir */
 .delete-btn {
-    color: #6a0dad; 
+    color: #7C7C8A;
     font-size: 18px;
     cursor: pointer;
     background: none;
     border: none;
-    transition: background 0.3s;
+    transition: color 0.3s;
 }
 
 .delete-btn:hover {
-    color: #f7f5f8; 
+    color: #F75A68; /* Vermelho para exclusão */
 }
 
-.riscado {
-    text-decoration: line-through;
-    color: #999; 
+/* =================================
+   BOTÕES INFERIORES (Voltar, Sortear)
+   ================================= */
+.botoes-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    background: #1E192B;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.botoes-bottom button {
+    background-color: transparent;
+    color: #7C7C8A;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.botoes-bottom button:hover {
+    color: #FFFFFF;
+}
+
+/* Botão de destaque para sortear */
+#sortear-indicacao {
+    background-color: #8257E6;
+    color: #FFFFFF;
+}
+
+#sortear-indicacao:hover {
+    background-color: #633BBC;
+    color: #FFFFFF;
+}
+
+/* =================================
+   ITEM SORTEADO
+   ================================= */
+.sorteado {
+    background-color: #8257E6 !important;
+    border-radius: 8px;
+    transition: background-color 0.5s ease;
+}
+
+.sorteado td {
+    color: #FFFFFF !important;
 }

@@ -1,4 +1,5 @@
 import Tabela from "@/src/components/Tabela";
+import"./style.css"
 
 export default function Filme() {
     return (
@@ -11,5 +12,5 @@ export default function Filme() {
             </div>
         </div>
     );
-
+    
 }

@@ -10,6 +10,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 const BIN_ID = process.env.BIN_ID;
 const MASTER_KEY = process.env.MASTER_KEY;
+const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 const api = axios.create({
     baseURL: `https://api.jsonbin.io/v3/b/${BIN_ID}`,
@@ -87,6 +88,44 @@ app.get("/indicacoes/:tipo", async (req, res) => {
         res.json(filtrados);
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao carregar dados" });
+    }
+});
+app.get("/detalhes-extras/:categoria/:nome", async (req, res) => {
+    try {
+        const { nome } = req.params;
+        const { categoria } = req.params;
+        let url;
+
+        if (categoria == "Livro") {
+            url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(nome)}&maxResults=1`;
+
+            const response = await axios.get(url);
+
+            if (response.data.totalItems > 0) {
+                const livro = response.data.items[0].volumeInfo;
+                res.json({
+                    sinopse: livro.description || "Sinopse não disponível.",
+                    capa: livro.imageLinks?.thumbnail || null,
+                    nota: livro.averageRating ? livro.averageRating.toFixed(1) : "N/A",
+                    autor: livro.authors ? livro.authors.join(", ") : "Desconhecido"
+                });
+            }
+        }
+        if (categoria == "Filme") url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(nome)}&language=pt-BR`;
+        if (categoria == "Série") url = `https://api.themoviedb.org/3/search/tv?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(nome)}&language=pt-BR`;
+        const response = await axios.get(url);
+        if (response.data.results.length > 0) {
+            const conteudo = response.data.results[0];
+            res.json({
+                sinopse: conteudo.overview || "Sinopse não disponível.",
+                capa: conteudo.poster_path ? `https://image.tmdb.org/t/p/w500${conteudo.poster_path}` : null,
+                nota: conteudo.vote_average.toFixed(1)
+            });
+        } else {
+            res.status(404).json({ erro: "Serie não encontrado na base de dados externa." });
+        }
+    } catch (error) {
+        res.status(500).json({ erro: "Erro ao consultar TMDB" });
     }
 });
 
